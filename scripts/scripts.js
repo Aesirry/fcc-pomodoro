@@ -2,7 +2,7 @@
 $(document).ready(function(){
   var second = 1000;
   var minute = 60000;
-
+  $("#timer").text('25:00');
   // adds extra 0
   function add0(number){
     if (number < 10){
