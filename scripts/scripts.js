@@ -3,6 +3,7 @@ $(document).ready(function(){
   var second = 1000;
   var minute = 60000;
   var toggle = false;
+  var isPaused = true;
 
   // adds extra 0 to single digit numbers
   function add0(number){
@@ -51,12 +52,12 @@ $(document).ready(function(){
 
   // start countdown and stop at end time
   // each second go back and re-render the clock
-  function initializeClock(endtime){
-    $("#start").attr('id', 'stop');
-    $("#start").text("Stop");
+  // function initializeClock(endtime){
+  //   $("#start").attr('id', 'stop');
+  //   $("#start").text("Stop");
     var timeinterval = setInterval(function(){
 
-      var t = getTimeRemaining(endtime);
+      var t = getTimeRemaining(work_time());
       if (t.total <= 0){
         clearInterval(timeinterval);
         ("#timer").text("Time's Up!");
@@ -66,13 +67,14 @@ $(document).ready(function(){
       })
       $("#timer").text(add0(t.minutes) + ':' + add0(t.seconds));
     },1000);
-  }
+  // }
 
   // saves current time when timer is stopped
 
   // when start is clicked initialize the countdown
-  $("#start").click(function() {
-    initializeClock(work_time());
+  $("#start").click(function(e) {
+    e.preventDefault();
+    isPaused = false;
   });
 
   // resets the clock to 25 minutes
@@ -82,11 +84,13 @@ $(document).ready(function(){
   }
 
   // stops and saves the current timer
-  function pause(){
+  $("#pause").click(function(e) {
     // make initializeClock pass the current time to the stop function
     // initializeClock
     // stop function
-  }
+    e.preventDefault(e);
+    isPaused = true;
+  });
   // function add_1(){
   //   reset(timeinterval);
   //
