@@ -1,23 +1,28 @@
 $(document).ready(function(){
   var time;
-  var clock = $("#timer").FlipClock(10, {
+  var clock = $("#timer").FlipClock(500, {
     countdown: true,
     autoStart: false,
-
     onStop: function() {
       $("#message").text("Time stopped!");
     },
   });
-
   $("#start").click(function(){
     clock.start();
-    time = clock.getFaceValue
-    $("#message").text(time);
+    $("#message").text("whatever");
+  });
+  $("#reset").click(function(){
 
   });
+  $("#pause").click(function(){
 
+  });
+  $("#add_1").click(function(){
 
+  });
+  $("#sub_1").click(function(){
 
+  });
 });
 
 
