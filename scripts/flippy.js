@@ -1,29 +1,18 @@
-$(document).ready(function(){
-  var time;
-  var clock = $("#timer").FlipClock(500, {
-    countdown: true,
-    autoStart: false,
-    onStop: function() {
-      $("#message").text("Time stopped!");
-    },
-  });
-  $("#start").click(function(){
-    clock.start();
-    $("#message").text("whatever");
-  });
-  $("#reset").click(function(){
+var clock;
 
+clock = $('.clock').FlipClock({
+      clockFace: 'DailyCounter',
+      autoStart: false,
+      callbacks: {
+        stop: function() {
+          $('.message').html('The clock has stopped!')
+        }
+      }
   });
-  $("#pause").click(function(){
 
-  });
-  $("#add_1").click(function(){
-
-  });
-  $("#sub_1").click(function(){
-
-  });
-});
+  clock.setTime(220880);
+  clock.setCountdown(true);
+  clock.start();
 
 
 // User Story: I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.

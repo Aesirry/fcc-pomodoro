@@ -2,7 +2,7 @@
   <head>
     <title>FCC Javascript Pomodoro Clock</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="stylesheets/flipclock.css" />
+    <link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css" />
     <link rel="stylesheet" href="stylesheets/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -14,18 +14,49 @@
         <div id="timer" class="clock-wrapper"></div>
         <button id="start">Start</button>
         <button id="reset">Reset</button>
-        <button id="pause">Pause</button>
-        <button id="add_1">+1</button>
-        <button id="sub_1">-1</button>
-        <h1 id="message">here</h1>
+        <button id="pause">pause</button>
+        <h1 class="message">here</h1>
       </div>
     </div>
   </body>
   <footer>
       Created by <a href="https://www.linkedin.com/in/joseph-beltrami" target="_blank">Joe Beltrami</a>
   </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="scripts/flipclock.min.js"></script>
-  <script src="scripts/flippy.js"></script>
+  <script src="FlipClock-master/compiled/flipclock.js"></script>
+  <script>
+    var clock;
+    var time;
+
+    clock = $('#timer').FlipClock(5, {
+          autoStart: false,
+          callbacks: {
+            stop: function() {
+              time = clock.getTime();
+              if (time = clock.getTime().time === 0){
+                $(".message").html("time's up!");
+              }
+            }
+          }
+      });
+    clock.setCountdown(true);
+
+    $("#start").click(function(){
+      clock.start();
+    });
+    $("#pause").click(function(){
+      clock.stop();
+      $(".message").html('The clock is stopped!');
+    });
+    $("#reset").click(function(){
+      clock.stop();
+      clock.reset();
+      clock.setTime(5);
+      var time = clock.getFaceValue();
+      console.log(time);
+    });
+  </script>
+  <!-- <script src="scripts/scripts.js"></script> -->
 </html>
