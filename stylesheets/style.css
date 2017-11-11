@@ -1,12 +1,27 @@
+
 body {
   text-align: center;
+  background-color:black;
 }
 
 footer {
   text-align: center;
+  margin-top: 400px;
+  color: white;
 }
 
 .clock-wrapper {
   margin: 100px auto;
   width: 461px;
+}
+
+.message{
+  color: red;
+}
+
+.title {
+  font-family: 'Rubik', sans-serif;
+  margin-top: 75px;
+  font-size: 85px;
+  color: 	#ff6800;
 }

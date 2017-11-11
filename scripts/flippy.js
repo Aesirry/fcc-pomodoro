@@ -1,22 +1,43 @@
 var clock;
+var time;
+var seconds = 1500;
 
-clock = $('.clock').FlipClock({
-      clockFace: 'DailyCounter',
+clock = $('#timer').FlipClock(seconds, {
       autoStart: false,
       callbacks: {
         stop: function() {
-          $('.message').html('The clock has stopped!')
+          time = clock.getTime();
+          if (time = clock.getTime().time === 0){
+            $(".message").html("time's up!");
+          }
         }
       }
   });
+clock.setCountdown(true);
 
-  clock.setTime(220880);
-  clock.setCountdown(true);
+$("#start").click(function(){
   clock.start();
+});
+$("#pause").click(function(){
+  clock.stop();
+  $(".message").html('The clock is stopped!');
+});
+$("#reset").click(function(){
+  clock.stop();
+  clock.reset();
+  seconds = 1500;
+  clock.setTime(seconds);
+});
 
-
-// User Story: I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
-// start the timer button
-// User Story: I can reset the clock for my next pomodoro.
-//
-// User Story: I can customize the length of each pomodoro.
+$("#add1").click(function(){
+  clock.stop();
+  seconds += 60;
+  clock.setTime(seconds);
+  console.log(seconds);
+});
+$("#sub1").click(function(){
+  clock.stop();
+  seconds -= 60;
+  clock.setTime(seconds);
+  console.log(seconds);
+});

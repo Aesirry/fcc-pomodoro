@@ -4,59 +4,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css" />
     <link rel="stylesheet" href="stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Rubik" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <h1>FCC Countdown</h1>
+        <h1 class="title">FCC Countdown</h1>
         <div id="timer" class="clock-wrapper"></div>
-        <button id="start">Start</button>
-        <button id="reset">Reset</button>
-        <button id="pause">pause</button>
-        <h1 class="message">here</h1>
+        <div class="btn-group">
+          <button id="start" type="button" class="btn-primary btn-lg" >Start</button>
+          <button id="reset" type="button" class="btn-primary btn-lg" >Reset</button>
+          <button id="pause" type="button" class="btn-primary btn-lg" >pause</button>
+          <button id="add1" type="button" class="btn-primary btn-lg" >+</button>
+          <button id="sub1" type="button" class="btn-primary btn-lg" >-</button>
+        </div>
+        <h1 class="message"></h1>
       </div>
     </div>
   </body>
   <footer>
-      Created by <a href="https://www.linkedin.com/in/joseph-beltrami" target="_blank">Joe Beltrami</a>
+      Created by <a href="https://www.linkedin.com/in/joseph-beltrami" target="_blank">Joe Beltrami with</a> with <a href="http://flipclockjs.com/">flipclock.js</a>
   </footer>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="FlipClock-master/compiled/flipclock.js"></script>
-  <script>
-    var clock;
-    var time;
-
-    clock = $('#timer').FlipClock(5, {
-          autoStart: false,
-          callbacks: {
-            stop: function() {
-              time = clock.getTime();
-              if (time = clock.getTime().time === 0){
-                $(".message").html("time's up!");
-              }
-            }
-          }
-      });
-    clock.setCountdown(true);
-
-    $("#start").click(function(){
-      clock.start();
-    });
-    $("#pause").click(function(){
-      clock.stop();
-      $(".message").html('The clock is stopped!');
-    });
-    $("#reset").click(function(){
-      clock.stop();
-      clock.reset();
-      clock.setTime(5);
-      var time = clock.getFaceValue();
-      console.log(time);
-    });
-  </script>
-  <!-- <script src="scripts/scripts.js"></script> -->
+  <script src="scripts/flippy.js"></script>
 </html>
