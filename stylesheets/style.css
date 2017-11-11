@@ -2,6 +2,11 @@ body {
   text-align: center;
 }
 
+clock-wrapper {
+  margin: 100px auto;
+    width: 461px;
+}
+
 footer {
   text-align: center;
 }

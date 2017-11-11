@@ -55,18 +55,18 @@ $(document).ready(function(){
   // function initializeClock(endtime){
   //   $("#start").attr('id', 'stop');
   //   $("#start").text("Stop");
-    var timeinterval = setInterval(function(){
-
-      var t = getTimeRemaining(work_time());
-      if (t.total <= 0){
-        clearInterval(timeinterval);
-        ("#timer").text("Time's Up!");
+  var now = work_time();
+  var timeinterval = setInterval(function(){
+    if(!isPaused){
+      var t = getTimeRemaining(now);
+        if (t.total <= 0){
+          clearInterval(timeinterval);
+          ("#timer").text("Time's Up!");
+        }
+        $("#timer").text(add0(t.minutes) + ':' + add0(t.seconds));
       }
-      $("#reset").click(function(){
-        reset(timeinterval);
-      })
-      $("#timer").text(add0(t.minutes) + ':' + add0(t.seconds));
-    },1000);
+  },1000);
+
   // }
 
   // saves current time when timer is stopped
@@ -78,10 +78,10 @@ $(document).ready(function(){
   });
 
   // resets the clock to 25 minutes
-  function reset(current_interval){
-    clearInterval(current_interval);
+  $('#reset').click(function (){
+    isPaused = true;
     $("#timer").text("25:00");
-  }
+  });
 
   // stops and saves the current timer
   $("#pause").click(function(e) {
@@ -91,8 +91,7 @@ $(document).ready(function(){
     e.preventDefault(e);
     isPaused = true;
   });
-  // function add_1(){
-  //   reset(timeinterval);
-  //
-  // }
 });
+// TODO #timer isn't changing the html for some reason
+// TODO the time remainig isn't changning
+// TODO change the reset button

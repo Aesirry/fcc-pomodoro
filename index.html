@@ -2,24 +2,26 @@
   <head>
     <title>FCC Javascript Pomodoro Clock</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="stylesheets/flipclock.css" />
     <link rel="stylesheet" href="stylesheets/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
   </head>
   <body>
-    <div class="container-fluid">
-      <h1 id="timer">25:00</h1>
+    <h1>FCC Countdown</h1>
+      <div id="timer" class="clock-wrapper"></div>
       <button id="start">Start</button>
       <button id="reset">Reset</button>
       <button id="pause">Pause</button>
       <button id="add_1">+1</button>
       <button id="sub_1">-1</button>
-    </div>
+      <h1 id="message">here</h1>
   </body>
   <footer>
       Created by <a href="https://www.linkedin.com/in/joseph-beltrami" target="_blank">Joe Beltrami</a>
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="scripts/scripts.js"></script>
+  <script src="scripts/flipclock.min.js"></script>
+  <script src="scripts/flippy.js"></script>
 </html>
